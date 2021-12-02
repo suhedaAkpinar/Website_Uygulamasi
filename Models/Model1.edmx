@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="URUNLERModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Kategori">
+          <Key>
+            <PropertyRef Name="kategoriId" />
+          </Key>
+          <Property Name="kategoriId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kategoriAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="EklenmeTarihi" Type="date" />
+        </EntityType>
+        <EntityType Name="Marka">
+          <Key>
+            <PropertyRef Name="MarkaId" />
+          </Key>
+          <Property Name="MarkaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MarkaAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="kategoriId" Type="int" />
+        </EntityType>
+        <EntityType Name="Urun">
+          <Key>
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Name="UrunId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kategoriId" Type="int" />
+          <Property Name="MarkaID" Type="int" />
+          <Property Name="UrunFiyati" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Resim" Type="nvarchar" MaxLength="50" />
+          <Property Name="UrunOzellik" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UrunlerTablosu">
+          <Key>
+            <PropertyRef Name="urunId" />
+          </Key>
+          <Property Name="urunId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kategori" Type="nvarchar" MaxLength="50" />
+          <Property Name="Modeli" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fiyati" Type="int" />
+          <Property Name="Resim" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <Function Name="kategori_getir" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="KategoriProcedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="kategoriAdi" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="MarkaProcedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="kategoriId" Type="int" Mode="In" />
+          <Parameter Name="MarkaAdi" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UrunProcedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UrunId" Type="int" Mode="In" />
+          <Parameter Name="kategoriId" Type="int" Mode="In" />
+          <Parameter Name="MarkaID" Type="int" Mode="In" />
+          <Parameter Name="UrunFiyati" Type="decimal" Mode="In" />
+          <Parameter Name="Resim" Type="nvarchar" Mode="In" />
+          <Parameter Name="UrunOzellik" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="URUNLERModelStoreContainer">
+          <EntitySet Name="Kategori" EntityType="Self.Kategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Marka" EntityType="Self.Marka" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Urun" EntityType="Self.Urun" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UrunlerTablosu" EntityType="Self.UrunlerTablosu" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="URUNLERModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Kategori">
+          <Key>
+            <PropertyRef Name="kategoriId" />
+          </Key>
+          <Property Name="kategoriId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kategoriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EklenmeTarihi" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Marka">
+          <Key>
+            <PropertyRef Name="MarkaId" />
+          </Key>
+          <Property Name="MarkaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MarkaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kategoriId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Urun">
+          <Key>
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Name="UrunId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kategoriId" Type="Int32" />
+          <Property Name="MarkaID" Type="Int32" />
+          <Property Name="UrunFiyati" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Resim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunOzellik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UrunlerTablosu">
+          <Key>
+            <PropertyRef Name="urunId" />
+          </Key>
+          <Property Name="urunId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kategori" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Modeli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fiyati" Type="Int32" />
+          <Property Name="Resim" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="URUNLEREntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Kategori" EntityType="Self.Kategori" />
+          <EntitySet Name="Marka" EntityType="Self.Marka" />
+          <EntitySet Name="Urun" EntityType="Self.Urun" />
+          <EntitySet Name="UrunlerTablosu" EntityType="Self.UrunlerTablosu" />
+          <FunctionImport Name="kategori_getir" ReturnType="Collection(URUNLERModel.kategori_getir_Result)" />
+          <FunctionImport Name="KategoriProcedure">
+            <Parameter Name="kategoriAdi" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="MarkaProcedure">
+            <Parameter Name="kategoriId" Mode="In" Type="Int32" />
+            <Parameter Name="MarkaAdi" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UrunProcedure">
+            <Parameter Name="UrunId" Mode="In" Type="Int32" />
+            <Parameter Name="kategoriId" Mode="In" Type="Int32" />
+            <Parameter Name="MarkaID" Mode="In" Type="Int32" />
+            <Parameter Name="UrunFiyati" Mode="In" Type="Decimal" />
+            <Parameter Name="Resim" Mode="In" Type="String" />
+            <Parameter Name="UrunOzellik" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="kategori_getir_Result">
+          <Property Type="Int32" Name="kategoriId" Nullable="false" />
+          <Property Type="String" Name="kategoriAdi" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="URUNLERModelStoreContainer" CdmEntityContainer="URUNLEREntities1">
+          <EntitySetMapping Name="Kategori">
+            <EntityTypeMapping TypeName="URUNLERModel.Kategori">
+              <MappingFragment StoreEntitySet="Kategori">
+                <ScalarProperty Name="kategoriId" ColumnName="kategoriId" />
+                <ScalarProperty Name="kategoriAdi" ColumnName="kategoriAdi" />
+                <ScalarProperty Name="EklenmeTarihi" ColumnName="EklenmeTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marka">
+            <EntityTypeMapping TypeName="URUNLERModel.Marka">
+              <MappingFragment StoreEntitySet="Marka">
+                <ScalarProperty Name="MarkaId" ColumnName="MarkaId" />
+                <ScalarProperty Name="MarkaAdi" ColumnName="MarkaAdi" />
+                <ScalarProperty Name="kategoriId" ColumnName="kategoriId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Urun">
+            <EntityTypeMapping TypeName="URUNLERModel.Urun">
+              <MappingFragment StoreEntitySet="Urun">
+                <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+                <ScalarProperty Name="kategoriId" ColumnName="kategoriId" />
+                <ScalarProperty Name="MarkaID" ColumnName="MarkaID" />
+                <ScalarProperty Name="UrunFiyati" ColumnName="UrunFiyati" />
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+                <ScalarProperty Name="UrunOzellik" ColumnName="UrunOzellik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UrunlerTablosu">
+            <EntityTypeMapping TypeName="URUNLERModel.UrunlerTablosu">
+              <MappingFragment StoreEntitySet="UrunlerTablosu">
+                <ScalarProperty Name="urunId" ColumnName="urunId" />
+                <ScalarProperty Name="Kategori" ColumnName="Kategori" />
+                <ScalarProperty Name="Modeli" ColumnName="Modeli" />
+                <ScalarProperty Name="Fiyati" ColumnName="Fiyati" />
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="kategori_getir" FunctionName="URUNLERModel.Store.kategori_getir">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="URUNLERModel.kategori_getir_Result">
+                <ScalarProperty Name="kategoriId" ColumnName="kategoriId" />
+                <ScalarProperty Name="kategoriAdi" ColumnName="kategoriAdi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="KategoriProcedure" FunctionName="URUNLERModel.Store.KategoriProcedure" />
+          <FunctionImportMapping FunctionImportName="MarkaProcedure" FunctionName="URUNLERModel.Store.MarkaProcedure" />
+          <FunctionImportMapping FunctionImportName="UrunProcedure" FunctionName="URUNLERModel.Store.UrunProcedure" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

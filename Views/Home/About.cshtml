@@ -1,0 +1,109 @@
+﻿
+@using UygulamaWebSıte.Models
+
+@{ 
+    var image = WebImage.GetImageFromRequest("uploadfile");
+    if (image != null)
+    {
+        image.Write();
+    }
+}
+<div class="row">
+    <div class="col-md-3">
+        <img src="~/fonts/1.jpg" alt="" style="width:100%;height:250px;">
+    </div>
+    <div class="col-md-3">
+        <img src="~/fonts/2.jpg" alt="" style="width:100%;height:250px;">
+    </div>
+    <div class="col-md-3">
+        <img src="~/fonts/3.jpg" alt="" style="width:100%;height:250px;">
+    </div>
+    <div class="col-md-3">
+        <img src="~/fonts/4.jpg" alt="" style="width:100%;height:250px;">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <img src="~/fonts/6.jpg" alt="" style="width:100%;height:250px;">
+    </div>
+    <div class="col-md-3">
+        <img src="~/fonts/7.jpg" alt="" style="width:100%;height:250px;">
+    </div>
+    <div class="col-md-3">
+        <img src="~/fonts/Anasayfa_HFU_180807.jpg" alt="" style="width:100%;height:250px;">
+    </div>
+    <div class="col-md-3">
+        <img src="~/fonts/developer.jpg" alt="" style="width:100%;height:250px;">
+    </div>
+</div>
+
+<form action="~/Home/About" method="post" enctype="multipart/form-data">
+    <input type="file" name="uploadfile" id="uploadfile" />
+    <br />
+    <input type="submit" value="Gönder" />
+</form>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        .vertical-menu a {
+            background-color: #eee;
+            color: black;
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+        }
+
+            .vertical-menu a:hover {
+                background-color: #ccc;
+            }
+
+            .vertical-menu a.active {
+                background-color: #f7a145;
+                color: white;
+            }
+    </style>
+
+</head>
+        @*<div class="vertical-menu">
+                  <ul >
+                      <li>@Html.ActionLink("Kategori Ekle", "Kategori", "Home")</li>
+                      <li>@Html.ActionLink("Markalar", "About", "Home")</li>
+                      <li>@Html.ActionLink("Fiyat Aralığı", "Contact", "Home")</li>
+                  </ul>
+
+            </div>*@
+
+
+
+@*<body>
+    <h2><a href="/Home/Yeni"> Kayıt Ekle</a></h2>
+    <h2>Tüm Kayıtlar</h2>
+    <table border="1">
+        <tr>
+            <td>Uye Resim</td>
+            <td>Uye Adı</td>
+            <td>Uye Soyad</td>
+            <td>İşlemler</td>
+        </tr>
+
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>< img src="/Images/KullaniciResimleri/@u.UyeResimAdi" width="100" height="100"</td>
+                <td>@u.Ad</td>
+                <td>@u.Soyad</td>
+                <td>
+                    <a href="/Home/Sil/@u.UyeId">SİL</a>
+                    <a href="/Home/Guncelle/@u.UyeId">GÜNCELLE</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>*@
+
+
+
+

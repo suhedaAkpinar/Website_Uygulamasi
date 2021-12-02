@@ -1,0 +1,175 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.turuncukart-h1 {
+  color: #ef7e20;
+  font-size: 18px;
+  font-weight: normal;
+  
+  margin-left: 37px;
+}
+
+    .footer .footer-center {
+        background: #f4f4f4;
+        padding: 40px 0;
+        width: 100%;
+    }
+
+
+            .footer .footer-center .help-list a {
+                display: block;
+                border-bottom: 1px solid #d9d9d9;
+                padding: 13px 0 25px 60px;
+                margin-bottom: 13px;
+                position: relative;
+                color: #135284;
+                font-size: 18px;
+                text-decoration: none;
+                width: 170px;
+            }
+
+                .footer .footer-center .help-list a:hover {
+                    color: #ef7e20;
+                    text-decoration: underline;
+                }
+
+                .footer .footer-center .help-list a:last-child {
+                    border: none;
+                }
+
+                .footer .footer-center .help-list a i {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    top: 0;
+                    width: 45px;
+                    height: 44px;
+                    display: block;
+                }
+
+                .footer .footer-center .help-list a.mhz {
+                    color: #47444b;
+                    padding-bottom: 13px;
+                }
+
+                    .footer .footer-center .help-list a.mhz:hover {
+                        color: #ef7e20;
+                        text-decoration: underline;
+                    }
+
+                    .footer .footer-center .help-list a.mhz span {
+                        display: block;
+                    }
+
+                        .footer .footer-center .help-list a.mhz span.title {
+                            font-size: 16px;
+                            margin-bottom: 5px;
+                        }
+
+                        .footer .footer-center .help-list a.mhz span.number {
+                            font-size: 24px;
+                            font-family: open_sanssemibold;
+                        }
+
+                    .footer .footer-center .help-list a.mhz i {
+                        background: url("/Content/teknosa/images/footer-help-list-icon.png") no-repeat top;
+                        top: 16px;
+                    }
+
+                .footer .footer-center .help-list a.shops i {
+                    background: url("/Content/teknosa/images/footer-help-list-icon.png") no-repeat 0 -44px;
+                }
+
+                .footer .footer-center .help-list a.help-center i {
+                    background: url("/Content/teknosa/images/footer-help-list-icon.png") no-repeat 0 -88px;
+                }
+
+                .footer .footer-center .help-list a.guarantee i {
+                    background: url("/Content/teknosa/images/footer-help-list-icon.png") no-repeat 0 -132px;
+                }
+
+                .footer .footer-center .help-list a.contact-us i {
+                    background: url("/Content/teknosa/images/footer-help-list-icon.png") no-repeat 0 -176px;
+                }
+
+
+        .footer .footer-center .newsletter-area {
+            width: 371px;
+            padding: 0 5px;
+            border-right: 1px solid #d9d9d9;
+            border-left: 1px solid #d9d9d9;
+            margin-right: 30px;
+        }
+
+            .footer .footer-center .newsletter-area .banner {
+                margin-bottom: 10px;
+            }
+
+            .footer .footer-center .newsletter-area p {
+                font-size: 20px;
+                color: #47444b;
+                padding: 0 30px;
+                line-height: 26px;
+                margin-bottom: 15px;
+            }
+
+                .footer .footer-center .newsletter-area p strong {
+                    font-family: open_sanssemibold;
+                }
+
+
+            .footer .footer-center .newsletter-area .send-eposta {
+                padding: 0 30px;
+            }
+
+                .footer .footer-center .newsletter-area .send-eposta input[type="text"] {
+                    width: 270px;
+                    height: 47px;
+                    line-height: 47px;
+                    border-radius: 3px;
+                    border: 1px solid #cdcdcd;
+                    padding: 0 20px;
+                    color: #c5c5c5;
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                }
+
+                .footer .footer-center .newsletter-area .send-eposta .button {
+                    font-family: open_sanssemibold;
+                    font-size: 18px;
+                    cursor: pointer;
+                }
+
+                .footer .footer-center .newsletter-area .send-eposta input[type="text"]:focus {
+                    color: #b3b2b2;
+                }
+
+        .footer .footer-center .site-map {
+            width: 360px;
+        }
+         .vertical-menu {
+            width: 200px;
+        }
+
+          

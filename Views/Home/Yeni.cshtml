@@ -1,0 +1,183 @@
+﻿@using UygulamaWebSıte.Models
+@model Tuple<Urun,Kategoriler,Marka,List<kategori_getir_Result>>
+    @using PagedList.Mvc
+   @using PagedList
+<html>
+
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial;
+        }
+
+        .tablink {
+            background-color: #555;
+            color: white;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 17px;
+            width: 25%;
+        }
+
+            .tablink:hover {
+                background-color: #777;
+            }
+
+        .tabcontent {
+            color: white;
+            display: none;
+            padding: 100px 20px;
+            height: 100%;
+        }
+
+
+
+        #Kategoriler {
+            background-color: white;
+        }
+
+        #Marka {
+            background-color: white;
+        }
+
+        #Urun {
+            background-color: white;
+        }
+
+    
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <button class="tablink" onclick="openPage('Kategoriler', this, 'orange')">Kategoriler</button>
+
+    <button class="tablink" onclick="openPage('Marka', this, 'orange')" id="defaultOpen">Marka</button>
+
+    <button class="tablink" onclick="openPage('Urun', this, 'orange')">Urun</button>
+
+    <div id="Kategoriler" class="tabcontent">
+
+        <fieldset>
+            <div style="text-align:left; color:black"><h3>Kategori Ekle</h3></div><br /><br />
+            
+            @using (Html.BeginForm("Yeni", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            { <div class="form-group">
+                <div class="row text-left">
+                    <input name="Item2.KategoriAdi" value="" type="text" required="required" placeholder="Ürün Kategorisini Giriniz" class="form-control">
+       
+                </div>
+            </div><br />
+            <div class="form-group">
+                <div class="row-md-12 text-left">
+                    <button type="submit" class="btn-primary  btn-lg">Ekle</button>
+                   
+               
+                </div>
+            </div>}
+            
+            
+        </fieldset>
+</div>
+
+
+
+    <div id="Marka" class="tabcontent">
+ 
+           
+        <fieldset>
+            <div style="text-align:left; color:black"><h3>Marka Ekle</h3></div><br /><br />
+          
+            @using(Html.BeginForm("Yeni", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            { <div class="form-group">
+            <div class="row text-left">
+            <input name ="MarkaAdi" value="" type="text" required="required" placeholder="Ürünün Markasını giriniz" class="form-control" >
+            </div>
+            </div><br />
+            <div class="form-group">
+                <div class="row-md-6 text-left">
+                    <button type="submit" class="btn-primary  btn-lg">Ekle</button>
+              </div></div>
+                }
+</fieldset></div>
+   
+    <div id="Urun" class="tabcontent">
+
+        <fieldset>
+            <div style="text-align:left; color:black"><h3>Ürün Ekle</h3></div><br /><br />
+
+            @using (Html.BeginForm("Yeni", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            { <div class="form-group">
+                <div class="row text-left">
+                    <input name="MarkaAdi" value="MarkaAdi" type="text" required="required" placeholder="Ürünün Markasını giriniz" class="form-control">
+                </div>
+            </div><br />
+            <div class="form-group">
+                <div class="row-md-12 text-left">
+                    <button type="submit" class="btn-primary  btn-lg">Ekle</button>
+                </div>
+            </div>
+            }
+        </fieldset>
+
+
+    </div>
+
+    <script>
+
+function openPage(pageName,elmnt,color) {
+
+    var i, tabcontent, tablinks;
+
+    tabcontent = document.getElementsByClassName("tabcontent");
+
+    for (i = 0; i < tabcontent.length; i++) {
+
+        tabcontent[i].style.display = "none";
+
+    }
+
+    tablinks = document.getElementsByClassName("tablink");
+
+    for (i = 0; i < tablinks.length; i++) {
+
+        tablinks[i].style.backgroundColor = "";
+
+    }
+
+    document.getElementById(pageName).style.display = "block";
+
+    elmnt.style.backgroundColor = color;
+
+
+
+   }
+
+    document.getElementById("defaultOpen").click();
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
